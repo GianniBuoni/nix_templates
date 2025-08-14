@@ -1,4 +1,7 @@
 {
+  description = ''
+    Starter Bevy dev and build flake. Includes needed dependancies for project to build on a Linux machine.
+  '';
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
     naersk.url = "github:nix-community/naersk";
@@ -29,24 +32,15 @@
           xorg.libXrandr # To use the x11 feature
         ];
         naersk' = pkgs.callPackage naersk {};
-        defaultPackage = naersk'.buildPackage {
+        mkApp = release: mode: {
           src = ./.;
-          inherit nativeBuildInputs buildInputs;
+          inherit nativeBuildInputs buildInputs release mode;
         };
       in {
-        inherit defaultPackage;
         packages = {
-          debug = naersk'.buildPackage {
-            src = ./.;
-            inherit nativeBuildInputs buildInputs;
-            release = false;
-          };
-          test = naersk'.buildPackage {
-            src = ./.;
-            inherit nativeBuildInputs buildInputs;
-            release = false;
-            mode = "test";
-          };
+          default = naersk'.buildPackage (mkApp true "build");
+          debug = naersk'.buildPackage (mkApp false "build");
+          test = naersk'.buildPackage (mkApp false "test");
         };
         devShell = pkgs.mkShell {
           nativeBuildInputs = with pkgs;
