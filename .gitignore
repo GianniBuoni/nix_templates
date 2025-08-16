@@ -1,4 +1,6 @@
-# prevent flakes from genterating locks
+# prevent committing genterated locks
 # locks will be generated for projects that use templates
 flake.lock
 
+# prevent commiting genreated direnv profiles
+.direnv
