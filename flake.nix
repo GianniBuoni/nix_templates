@@ -12,6 +12,7 @@
         ./bevy "Bevy Template" ''
           Starter Bevy project with release, debug, and test builds.
         '';
+      go = mkTempate ./go "Go Template" "Basic go project.";
       tui = mkTempate ./tui "Ratatui Template" "Starter Ratatui project";
     };
   };

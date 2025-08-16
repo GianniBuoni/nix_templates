@@ -21,5 +21,6 @@ The above shell command will copy the target flake template and a `.envrc` into 
 
 | Project Type | Language | Notes                                             |
 | ------------ | -------- | ------------------------------------------------- |
-| bevy         | Rust     | Probably needs Mac/Windows target added to flake. |
-| tui          | Rust     | Generic enough to use for other rust projects.    |
+| bevy         | rust     | Probably needs Mac/Windows target added to flake. |
+| go           | go       | Basic go project.                                 |
+| tui          | rust     | Generic enough to use for other rust projects.    |
