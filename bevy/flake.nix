@@ -16,10 +16,15 @@
   }:
     flake-utils.lib.eachDefaultSystem (
       system: let
-        pkgs = (import nixpkgs) {
-          inherit system;
-        };
-        nativeBuildInputs = [pkgs.pkg-config];
+        pkgs = (import nixpkgs) {inherit system;};
+        nativeBuildInputs = with pkgs; [
+          cargo
+          clippy
+          just
+          rustc
+          rust-analyzer
+          pkg-config
+        ];
         buildInputs = with pkgs; [
           alsa-lib
           libxkbcommon
@@ -43,9 +48,7 @@
           test = naersk'.buildPackage (mkApp false "test");
         };
         devShell = pkgs.mkShell {
-          nativeBuildInputs = with pkgs;
-            [rustc cargo clippy] ++ buildInputs ++ nativeBuildInputs;
-          packages = with pkgs; [just rust-analyzer];
+          inherit nativeBuildInputs buildInputs;
         };
       }
     );
