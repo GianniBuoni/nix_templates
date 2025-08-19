@@ -1,0 +1,7 @@
+# devshells
+.direnv
+.devenv
+
+# rust & nix
+/target
+/result
