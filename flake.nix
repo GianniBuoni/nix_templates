@@ -12,7 +12,7 @@
         ./bevy "Bevy Template" ''
           Starter Bevy project with release, debug, and test builds.
         '';
-      den = mkTempate ./den "General purpose dendritic template.";
+      den = mkTempate ./den "Den Template" "General purpose dendritic template.";
       go = mkTempate ./go "Go Template" "Basic go project.";
       tui = mkTempate ./tui "Ratatui Template" "Starter Ratatui project";
     };
