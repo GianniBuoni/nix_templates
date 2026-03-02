@@ -8,6 +8,7 @@
   in {
     templates = {
       den = mkTempate ./den "Den Template" "General purpose dendritic template.";
+      rust = mkTempate ./rust "Rust Template" "General purpose rust project template.";
     };
   };
 }
