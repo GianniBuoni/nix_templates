@@ -10,17 +10,17 @@ Templates include boilerplate nix to define common projects I like to work on! E
 nix flake init --template "github:GianniBuoni/nix_templates#insert-template-name-here"
 ```
 
-The above shell command will copy the target flake template and a `.envrc` into the project directory.
+The above shell command will copy the target flake template into the project directory. Use `direnv edit` to activate a specific devshell.
 
 ## Flake contents
 
-- 📦 Packages: define a set of packages with release and test builds.
-- 🐚 Dev shells: defines a dev shell with needed dev and language tools.o
+- 🐚 Dev shells: defines a dev shell with needed dev and language tools
+- 📦 Packages: defines development and build dependencies
+- 🪝 Git hooks: defines git hook scripts for development
 
 ## 📓 Available projects
 
-| Project Type | Language | Notes                                             |
-| ------------ | -------- | ------------------------------------------------- |
-| bevy         | rust     | Probably needs Mac/Windows target added to flake. |
-| go           | go       | Basic go project.                                 |
-| tui          | rust     | Generic enough to use for other rust projects.    |
+| Project Type | Language | Notes                                         |
+| ------------ | -------- | --------------------------------------------- |
+| den          | N/A      | Generic devshell using the dendritic pattern. |
+| rust         | rust     | Rust devshells for development and CI         |
